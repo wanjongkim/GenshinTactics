@@ -1,0 +1,2 @@
+# GenshinTactics
+Created with CodeSandbox
