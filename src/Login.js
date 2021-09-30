@@ -32,14 +32,14 @@ function Login() {
             <div className="input-field col l10 offset-l1 offset-s1 s10">
               <i className="material-icons prefix">account_circle</i>
               <input id="username" type="text" className="validate" />
-              <label for="username">Username</label>
+              <label htmlFor="username">Username</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col l10 offset-l1 offset-s1 s10">
               <i className="material-icons prefix">lock_outline</i>
               <input id="password" type="password" className="validate" />
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
             </div>
           </div>
           <div className="row">

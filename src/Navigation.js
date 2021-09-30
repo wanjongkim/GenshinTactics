@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import App from "./App";
 import Footer from "./Footer";
 import Login from "./Login";
+import Characters from "./Characters";
 import "./styles.css";
 import { useState } from "react";
 
@@ -35,13 +36,31 @@ function Navigation() {
                 <a href="sass.html">Contact</a>
               </li>
               <li>
-                <a href="badges.html">GitHub</a>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/wanjongkim/GenshinTactics"
+                >
+                  GitHub
+                </a>
               </li>
-              <li>
-                <Link to="/login">Login</Link>
+              <li
+                className={`${activeLink === "/login" ? "active" : ""}`}
+                onClick={() => setActiveLink("/login")}
+              >
+                <Link to="login">Login</Link>
               </li>
-              <li className="active">
+              <li
+                className={`${activeLink === "/" ? "active" : ""}`}
+                onClick={() => setActiveLink("/")}
+              >
                 <Link to="/">Home</Link>
+              </li>
+              <li
+                className={`${activeLink === "/characters" ? "active" : ""}`}
+                onClick={() => setActiveLink("/characters")}
+              >
+                <Link to="characters">Characters</Link>
               </li>
             </ul>
           </div>
@@ -53,7 +72,12 @@ function Navigation() {
             </Link>
           </li>
           <li>
-            <a className="sidenav-close" href="#">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sidenav-close"
+              href="https://github.com/wanjongkim/GenshinTactics"
+            >
               Github
             </a>
           </li>
@@ -65,8 +89,17 @@ function Navigation() {
           <li>
             <Link
               className="sidenav-close"
+              to="/characters"
+              onClick={() => setActiveLink("/characters")}
+            >
+              Characters
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="sidenav-close"
               to="/login"
-              onClick={() => setActiveLink("login")}
+              onClick={() => setActiveLink("/login")}
             >
               Login
             </Link>
@@ -85,6 +118,9 @@ function Navigation() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/characters">
+          <Characters />
         </Route>
       </Switch>
     </Router>

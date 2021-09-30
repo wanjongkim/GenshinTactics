@@ -1,13 +1,29 @@
 import "./styles.css";
+import { useRef, useState } from "react";
 
 function Home() {
-  function search() {}
+  const [numCharsChosen, setNumCharsChosen] = useState(0);
+  const M = window.M;
+
+  function search() {
+    if (numCharsChosen < 4) {
+      M.toast({
+        html: "You must pick at least 4 characters!",
+        classes: "errorMessage",
+        displayLength: 3000
+      });
+    } else {
+    }
+  }
+
   function selectChar(e) {
     let el = e.target;
     if (el.classList.contains("brighten")) {
       el.classList.remove("brighten");
+      setNumCharsChosen(numCharsChosen - 1);
     } else {
       el.classList.add("brighten");
+      setNumCharsChosen(numCharsChosen + 1);
     }
   }
 
@@ -36,8 +52,6 @@ function Home() {
           src="https://www.genshin-impact.fr/wp-content/uploads/2020/07/MC-anemo.png"
           alt="character"
           onClick={(e) => selectChar(e)}
-          onMouseEnter={() => setIsShown(true)}
-          onMouseLeave={() => setIsShown(false)}
         />
 
         <img
